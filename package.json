@@ -1,0 +1,36 @@
+{
+  "name": "zoho-crm-mcp",
+  "version": "1.0.0",
+  "description": "Serveur MCP (Model Context Protocol) pour Zoho CRM, exposé en HTTP streamable / SSE / stdio, conçu pour être branché comme outil MCP dans Superfasttt.",
+  "type": "module",
+  "main": "dist/http.js",
+  "bin": {
+    "zoho-crm-mcp": "dist/stdio.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/http.js",
+    "start:stdio": "node dist/stdio.js",
+    "dev": "tsx src/http.ts",
+    "dev:stdio": "tsx src/stdio.ts",
+    "get-refresh-token": "node scripts/get-refresh-token.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "dotenv": "^16.4.5",
+    "express": "^5.1.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.15.0",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  },
+  "license": "MIT"
+}
